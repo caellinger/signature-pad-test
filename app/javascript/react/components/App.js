@@ -1,7 +1,10 @@
 import React from 'react'
+import SigPad from './SigPad'
 
 export const App = (props) => {
-  return (<h1>Make It So React</h1>)
+  return (
+    <SigPad />
+  )
 }
 
 export default App
