@@ -42,7 +42,7 @@ const SigPad = () => {
         ref={(ref) => { this.sigCanvas = ref }}
         penColor='green'
       />
-    <button type="button" className="button save" onClick={submitHandler}>Save</button>
+      <button type="button" className="button save" onClick={submitHandler}>Save</button>
     </div>
   )
 }
