@@ -1,9 +1,17 @@
 import React from 'react'
-import SigPad from './SigPad'
+import { BrowserRouter, Route, Switch } from 'react-router-dom'
 
-export const App = (props) => {
+import SigPad from './SigPad'
+import ImagesIndexContainer from './ImagesIndexContainer'
+
+const App = () => {
   return (
-    <SigPad />
+    <BrowserRouter>
+      <Switch>
+        <Route exact path="/" component={SigPad} />
+        <Route path="/images" component={ImagesIndexContainer} />
+      </Switch>
+    </BrowserRouter>
   )
 }
 

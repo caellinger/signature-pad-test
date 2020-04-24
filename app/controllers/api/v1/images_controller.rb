@@ -4,7 +4,7 @@ class Api::V1::ImagesController < ApiController
   require 'securerandom'
 
   def index
-    @images = Image.all
+    render json: Image.all
   end
 
   def show
@@ -16,8 +16,8 @@ class Api::V1::ImagesController < ApiController
     encoded_image = data_uri.split(",")[1]
     decoded_image = Base64.decode64(encoded_image)
     file_path = SecureRandom.uuid
-    File.open("/tmp/#{file_path}.jpeg", "wb") { |f| f.write(decoded_image) }
-    image = Image.new(image: "/tmp/#{file_path}")
+    File.open("/Users/christieellinger/Downloads/breakable-toy/signature-pad-test/public/images/#{file_path}.jpeg", "wb") { |f| f.write(decoded_image) }
+    image = Image.new(image: "#{file_path}.jpeg")
     if image.save
     else
       render json: { error: image.errors.full_messages }, status: :unprocessable_entity
